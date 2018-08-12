@@ -545,7 +545,7 @@ export class DefaultService {
     public devicelinkRemoveDeviceFromGroup(id2: string, id: string, observe?: 'body', reportProgress?: boolean): Observable<any>;
     public devicelinkRemoveDeviceFromGroup(id2: string, id: string, observe?: 'response', reportProgress?: boolean): Observable<HttpResponse<any>>;
     public devicelinkRemoveDeviceFromGroup(id2: string, id: string, observe?: 'events', reportProgress?: boolean): Observable<HttpEvent<any>>;
-    public devicelinkRemoveDeviceFromGroup(id2: string, id: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
+    public devicelinkRemoveDeviceFromGroup(groupId: string, id2: string, id: string, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
         if (id2 === null || id2 === undefined) {
             throw new Error('Required parameter id2 was null or undefined when calling devicelinkRemoveDeviceFromGroup.');
         }
