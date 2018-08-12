@@ -1,6 +1,4 @@
-## client-typescript
-
-Typescript (Angular) client for Devicelink.
+## devicelink@0.1.0
 
 ### Building
 
@@ -12,7 +10,7 @@ npm run build
 
 ### publishing
 
-First build the package than run ```npm publish```
+First build the package than run ```npm publish dist``` (don't forget to specify the `dist` folder!)
 
 ### consuming
 
@@ -21,25 +19,25 @@ Navigate to the folder of your consuming project and run one of next commands.
 _published:_
 
 ```
-npm install @ --save
+npm install devicelink@0.1.0 --save
 ```
 
 _without publishing (not recommended):_
 
 ```
-npm install PATH_TO_GENERATED_PACKAGE --save
+npm install PATH_TO_GENERATED_PACKAGE/dist --save
 ```
 
 _using `npm link`:_
 
-In PATH_TO_GENERATED_PACKAGE:
+In PATH_TO_GENERATED_PACKAGE/dist:
 ```
 npm link
 ```
 
 In your project:
 ```
-npm link 
+npm link devicelink
 ```
 
 __Note for Windows users:__ The Angular CLI has troubles to use linked npm packages.
@@ -54,7 +52,7 @@ In your Angular project:
 
 ```
 // without configuring providers
-import { ApiModule } from '';
+import { ApiModule } from 'devicelink';
 import { HttpClientModule } from '@angular/common/http';
 
 
@@ -74,7 +72,7 @@ export class AppModule {}
 
 ```
 // configuring providers
-import { ApiModule, Configuration, ConfigurationParameters } from '';
+import { ApiModule, Configuration, ConfigurationParameters } from 'devicelink';
 
 export function apiConfigFactory (): Configuration => {
   const params: ConfigurationParameters = {
@@ -93,7 +91,7 @@ export class AppModule {}
 ```
 
 ```
-import { DefaultApi } from '';
+import { DefaultApi } from 'devicelink';
 
 export class AppComponent {
 	 constructor(private apiGateway: DefaultApi) { }
@@ -132,7 +130,7 @@ export class AppModule {
 If different than the generated base path, during app bootstrap, you can provide the base path to your service. 
 
 ```
-import { BASE_PATH } from '';
+import { BASE_PATH } from 'devicelink';
 
 bootstrap(AppComponent, [
     { provide: BASE_PATH, useValue: 'https://your-web-service.com' },
@@ -141,7 +139,7 @@ bootstrap(AppComponent, [
 or
 
 ```
-import { BASE_PATH } from '';
+import { BASE_PATH } from 'devicelink';
 
 @NgModule({
     imports: [],
@@ -165,7 +163,7 @@ export const environment = {
 
 In the src/app/app.module.ts:
 ```
-import { BASE_PATH } from '';
+import { BASE_PATH } from 'devicelink';
 import { environment } from '../environments/environment';
 
 @NgModule({
@@ -178,15 +176,3 @@ import { environment } from '../environments/environment';
 })
 export class AppModule { }
 ```  
-
-## Disclaimer
-
-Work in progress. Not ready for production.
-
-## Copyright
-
-Copyright 2018, Devicelink
-
-## License
-
-Released under the Apache 2.0 license.
